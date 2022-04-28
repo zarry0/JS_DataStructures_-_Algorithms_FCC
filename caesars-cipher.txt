@@ -1,0 +1,16 @@
+function rot13(str) {
+  const alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let decipherStr = [], newIndex;
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-Z]/i.test(str[i])) {
+      newIndex = (alph.indexOf(str[i]) + 13) % 26;
+      decipherStr.push(alph[newIndex]);
+    } else {
+      decipherStr.push(str[i]);
+    }
+  }
+  console.log(decipherStr.join(''));
+  return decipherStr.join('');
+}
+
+rot13("SERR PBQR PNZC");
